@@ -17,7 +17,8 @@
   },
   "homepage": "https://github.com/federicolevin/node-de-cero-a-experto#readme",
   "dependencies": {
-    "colors": "^1.4.0"
+    "colors": "^1.4.0",
+    "yargs": "^17.5.1"
   },
   "devDependencies": {}
 }
