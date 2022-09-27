@@ -1,12 +1,17 @@
 require('colors');
 
-const { guardarTareas } = require('./helpers/guardarArchivo');
+const { guardarTareas, leerTareas } = require('./helpers/guardarArchivo');
 const { inquirerMenu, pausa, leerInput } = require('./helpers/inquirer');
 const Tareas = require('./models/tareas');
 
 const main = async() => {
     let opt = '';
     const tareas = new Tareas();
+    const tareasArchivo = leerTareas();
+
+    if (tareasArchivo) {
+        tareas.cargarTareasFromArray(tareasArchivo);
+    }
 
     do {
         opt = await inquirerMenu();
