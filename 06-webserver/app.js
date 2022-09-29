@@ -1,10 +1,19 @@
-const http = require('http');
+const express = require('express');
+const app = express();
+const port = 7080;
 
-const server = http.createServer((request, response) => {
-    response.write('Hola Mundo');
-    response.end();
+app.get('/', (req, res) => {
+    res.send('Hello World')
 });
 
-server.listen(7080);
+app.get('/hola-mundo', (req, res) => {
+    res.send('Hola mundo en su propia ruta')
+});
 
-console.log('Escuchando el puerto 7080');
+app.get('*', (req, res) => {
+    res.send('Pagina no encontrada')
+});
+
+app.listen(port, () => {
+    console.log(`06-webserver listening at http://localhost:${port}`);
+});
