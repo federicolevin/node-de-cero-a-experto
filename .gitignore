@@ -104,3 +104,4 @@ dist
 .tern-port
 
 04-todo-list/db/*
+05-clima-app/db/*
