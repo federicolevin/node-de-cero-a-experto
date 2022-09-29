@@ -1,12 +1,17 @@
 const express = require('express');
+const path = require('path');
 const app = express();
 const port = 7080;
 
 // Servir contenido estatico
-app.use(express.static('public'));
+app.use(express.static('public/templated-roadtrip'));
 
-app.get('/hola-mundo', (req, res) => {
-    res.send('Hola mundo en su propia ruta')
+app.get('/elements', (req, res) => {
+    res.sendFile(path.join(__dirname, '/public/templated-roadtrip/elements.html'));
+});
+
+app.get('/generic', (req, res) => {
+    res.sendFile(path.join(__dirname, '/public/templated-roadtrip/generic.html'));
 });
 
 app.get('*', (req, res) => {
