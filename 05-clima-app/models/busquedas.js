@@ -21,7 +21,13 @@ class Busquedas {
                 params: this.paramsMapBox
             });
             const response = await axiosInstance.get();
-            console.log(response.data);
+            
+            return response.data.features.map( ciudadRespone => ({
+                id: ciudadRespone.id,
+                nombre: ciudadRespone.place_name,
+                lng: ciudadRespone.center[0],
+                lat: ciudadRespone.center[1]
+            }));
         } catch (error) {
             console.log(error);
             return [];
