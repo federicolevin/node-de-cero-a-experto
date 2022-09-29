@@ -15,6 +15,7 @@ const main = async() => {
                 console.log(ciudad);
 
                 // Buscar los lugares
+                busquedas.buscarCiudad(ciudad);
                 
                 // Seleccionar el lugar
                 
