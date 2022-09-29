@@ -9,7 +9,10 @@ app.set('view engine', 'hbs');
 app.use(express.static('public/templated-roadtrip'));
 
 app.get('/', (request, response) => {
-    response.render('home');
+    response.render('home', {
+        nombre: 'Federico Levin',
+        titulo: 'Curso de Node'
+    });
 });
 
 app.get('/elements', (request, response) => {
